@@ -45,6 +45,7 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::ForceMovePlayer(FVector InDelta)
 {
 	FMovementStatics FrameMovement = MovementComponent->CreateFrameMovement();
+	FrameMovement.ShouldApplyGravity();
 	FrameMovement.AddDelta(InDelta);
 		
 	if (bIsAllowedToMove) // Move player unless stunned

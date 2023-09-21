@@ -55,7 +55,7 @@ FMovementStatics UPlayerMovementComponent::CreateFrameMovement() const
 void UPlayerMovementComponent::Move(FMovementStatics& FrameMovement, FRotator TargetRotation)
 {
 	FHitResult Hit;
-	if (FrameMovement.ShouldApplyGravity())
+	if (FrameMovement.ShouldApplyGravity() && bApplyGravity)
 	{
 		SafeMoveUpdatedComponent(FrameMovement.GetGravity(), UpdatedComponent->GetComponentQuat(), true, Hit);
 		Hit.Reset();
