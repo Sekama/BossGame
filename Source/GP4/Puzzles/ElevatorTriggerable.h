@@ -20,6 +20,10 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
 
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnTriggerDone();
+
 	UFUNCTION(BlueprintCallable)
 	virtual void SetTargetLocation(FVector Location);
 	UFUNCTION(BlueprintCallable)
@@ -40,4 +44,6 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	float ElevatorSpeed = 1.0f;
+
+	float Timer = 0;
 };

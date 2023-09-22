@@ -49,7 +49,8 @@ public:
 	float Acceleration = 100;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Gravity = 10;
-	
+	UPROPERTY(BlueprintReadWrite)
+	bool bApplyGravity = true;
 
 protected:
 	// The rate at whih the owner of this actor moves. In U/s.
