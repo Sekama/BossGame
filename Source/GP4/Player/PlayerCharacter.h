@@ -38,7 +38,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Combat)
 	UPlayerFireComponent* FireComponent;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attacking | Projectile")
-	USceneComponent* ProjectileSpawnPoint;
+	USceneComponent* ProjectileSpawn;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh)
 	USkeletalMeshComponent* Mesh;

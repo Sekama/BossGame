@@ -135,7 +135,7 @@ void UPlayerFireComponent::SpawnProjectile()
 	FHitResult Hit;
 	GetWorld()->LineTraceSingleByChannel(Hit, CameraPos, CameraPos + CameraForward * 10000, ECC_Visibility);
 
-	const FVector SpawnLocation = Player->ProjectileSpawnPoint->GetComponentLocation();
+	const FVector SpawnLocation = Player->ProjectileSpawn->GetComponentLocation();
 	auto EndLocation = CameraPos + CameraForward * 10000;
 
 	if(IsValid(Hit.GetActor()))

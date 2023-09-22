@@ -38,8 +38,8 @@ APlayerCharacter::APlayerCharacter()
 	DashComponent = CreateDefaultSubobject<UDashComponent>(TEXT("Dash Component"));
 
 	FireComponent = CreateDefaultSubobject<UPlayerFireComponent>(TEXT("Fire Component"));
-	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
-	ProjectileSpawnPoint->SetupAttachment(Capsule);
+	ProjectileSpawn = CreateDefaultSubobject<USceneComponent>(TEXT("ProjectileSpawn"));
+	ProjectileSpawn->SetupAttachment(RootComponent);
 }
 
 void APlayerCharacter::ForceMovePlayer(FVector InDelta)
