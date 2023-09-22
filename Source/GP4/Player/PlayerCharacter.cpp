@@ -201,8 +201,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 void APlayerCharacter::EnableCameraRotation(const FInputActionValue& Value)
 {
+	if (DashComponent->bIsDashing) return;
+
 	bool const Enable = Value.Get<bool>();
-	// CustomCameraComponent->EnableCameraRotation(Enable);
 
 	FireComponent->SetAimMode(Enable);
 }
@@ -258,6 +259,11 @@ void APlayerCharacter::Pause()
 
 void APlayerCharacter::Dash()
 {
+	if (FireComponent->bIsAiming)
+	{
+		FireComponent->SetAimMode(false);
+	}
+
 	DashComponent->ActivateDash();
 }
 

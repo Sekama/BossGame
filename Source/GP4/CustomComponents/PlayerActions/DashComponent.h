@@ -29,6 +29,9 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnDash OnDash;
 
+	UPROPERTY(BlueprintReadOnly)
+	bool bIsDashing = false;
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -37,7 +40,6 @@ protected:
 	APlayerCharacter* Player;
 	
 	float CachedDashDuration;
-	bool bIsDashing = false;
 	float MinDashDelta = 0.3f;
 	float CooldownTimer = 0;
 
