@@ -21,7 +21,7 @@ public:
 
 	virtual void PerformAbility() override;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<class ASunbeam> SunBeamClass;
 
 	UPROPERTY(EditAnywhere)
