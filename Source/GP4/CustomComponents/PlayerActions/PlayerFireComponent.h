@@ -49,6 +49,7 @@ public:
 	float ReloadTimer = -1.f;
 	
 	float OriginalCameraDistance;
+	UPROPERTY(BlueprintReadOnly)
 	bool bIsAiming = false;
 
 	UFUNCTION(BlueprintCallable)
