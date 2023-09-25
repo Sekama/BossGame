@@ -32,14 +32,13 @@ void AElevatorTriggerable::Tick(float DeltaSeconds)
 
 	if(!bIsTriggered) return;
 
-
 	Timer += DeltaSeconds * ElevatorSpeed;
-	ElevatorPlatform->SetRelativeLocation(FMath::Lerp(ElevatorPlatform->GetRelativeLocation(), TargetLocation, Timer));
+	ElevatorPlatform->SetRelativeLocation(FMath::Lerp(StartLocation, TargetLocation, Timer));
 
-	if (ElevatorPlatform->GetRelativeLocation().Equals(TargetLocation, 0.2f))
+	if (Timer >= 1)
 	{
-		bIsTriggered = false;
 		OnTriggerDone();
+		bIsTriggered = false;
 	}
 }
 
