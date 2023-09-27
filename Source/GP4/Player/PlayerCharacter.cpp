@@ -231,11 +231,16 @@ void APlayerCharacter::PrimaryRelease()
 
 void APlayerCharacter::RotatePlayer(float DeltaTime)
 {
-	CurrentRot = GetActorRotation();
-
 	if(FireComponent->bIsAiming)
 	{
-		RotatePlayer(DeltaTime, FireComponent->GetAimRotation());
+		if (!InputVector.IsNearlyZero())
+		{
+			RotatePlayer(DeltaTime, FireComponent->GetAimRotation());
+		}
+		else
+		{
+			ForceRotatePlayer(FireComponent->GetAimRotation());
+		}
 		return;
 	}
 
@@ -249,6 +254,14 @@ void APlayerCharacter::RotatePlayer(float DeltaTime, FRotator Direction)
 {
 	CurrentRot = GetActorRotation();
 	CharRotation = FMath::RInterpTo(CurrentRot, Direction, DeltaTime, TurnRate);
+
+}
+
+void APlayerCharacter::ForceRotatePlayer(FRotator Direction)
+{
+	auto FrameMovement = MovementComponent->CreateFrameMovement();
+	FrameMovement.AddDelta(Direction.Vector());
+	MovementComponent->Move(FrameMovement, Direction);
 }
 
 void APlayerCharacter::Pause()
