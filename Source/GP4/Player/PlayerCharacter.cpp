@@ -260,7 +260,7 @@ void APlayerCharacter::RotatePlayer(float DeltaTime, FRotator Direction)
 void APlayerCharacter::ForceRotatePlayer(FRotator Direction)
 {
 	auto FrameMovement = MovementComponent->CreateFrameMovement();
-	FrameMovement.AddDelta(Direction.Vector());
+	FrameMovement.AddDelta(Direction.Vector() * .0001f);
 	MovementComponent->Move(FrameMovement, Direction);
 }
 
