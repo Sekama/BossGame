@@ -63,7 +63,7 @@ void UPlayerMovementComponent::Move(FMovementStatics& FrameMovement, FRotator Ta
 
 	FVector Delta = GetMovementDelta(FrameMovement);
 
-	if (!Delta.IsNearlyZero())
+	if (/*!Delta.IsNearlyZero() || */true)
 	{
 		SafeMoveUpdatedComponent(Delta, TargetRotation, true, Hit);
 

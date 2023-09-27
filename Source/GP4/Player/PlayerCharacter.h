@@ -125,6 +125,7 @@ protected:
 	void Dash();
 	void RotatePlayer(float DeltaTime);
 	void RotatePlayer(float DeltaTime, FRotator Direction);
+	void ForceRotatePlayer(FRotator Direction);
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnPause(bool Pause);
