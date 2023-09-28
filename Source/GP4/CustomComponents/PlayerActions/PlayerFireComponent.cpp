@@ -35,17 +35,7 @@ void UPlayerFireComponent::BeginPlay()
 void UPlayerFireComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	if(bIsAiming)
-	{
-		// Turn towards look direction
-		// auto Camera = Cast<APlayerCharacter>(GetOwner())->CustomCameraComponent;
-		// auto Forward = Camera->GetCamera()->GetForwardVector();
-		// Forward = FVector(Forward.X, Forward.Y, 0).GetSafeNormal();
-		 
-		// GetOwner()->SetActorRotation(Forward.Rotation());
-	}
-
+	
 	if (ReloadTimer >= 0)
 	{
 
@@ -68,7 +58,7 @@ void UPlayerFireComponent::Fire()
 {
 	if(!CanFire())
 	{
-		StartReload();
+		//StartReload();
 		return;
 	}
 
@@ -76,6 +66,7 @@ void UPlayerFireComponent::Fire()
 
 	bHasAmmo = false;
 	SpawnProjectile();
+	StartReload();
 }
 
 /**
